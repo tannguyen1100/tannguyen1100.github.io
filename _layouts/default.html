@@ -1,0 +1,27 @@
+---
+---
+
+{%- assign locale = page.locale | default: layout.locale | default: site.locale %}
+
+<!doctype html>
+<html lang="{{ locale | replace: '_', '-' | default: 'en' }}" class="no-js"
+  dir="{{ page.direction | default: layout.direction | default: site.direction | default: 'ltr' }}">
+
+<head>
+  {% include head.html locale=locale %}
+</head>
+
+<body
+  class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}">
+  {% include masthead.html locale=locale %}
+
+  <div class="initial-content">{{ content }}</div>
+
+  <div id="footer" class="page__footer">
+    <footer>{% include footer.html locale=locale %}</footer>
+  </div>
+
+  {% include scripts.html locale=locale %}
+</body>
+
+</html>

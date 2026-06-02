@@ -1,0 +1,17 @@
+---
+layout: archive
+---
+
+{%- assign locale = page.locale | default: layout.locale | default: site.locale %}
+{{ content }}
+
+{% include search-box.html locale=locale %}
+
+<div class="no-search">
+{% assign entries_layout = page.entries_layout | default: 'list' %}
+<div class="entries-{{ entries_layout }}">
+  {% include documents-collection.html locale=locale entries=paginator.posts type=entries_layout %}
+</div>
+
+{% include paginator.html locale=locale %}
+</div>

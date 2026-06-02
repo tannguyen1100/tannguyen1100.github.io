@@ -1,53 +1,123 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick references for you:
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
+# Site Settings
 
-title: Newt Nguyen
-email: ngngoctan11@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Something about Newt
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-github_username:  tannguyen1100
-linkedin_username: newtnguyen1568
+locale: "en-US"
+title: "Wrap the world with kindness"
+title_separator: "-"
+subtitle: ""
+name: "Newt Nguyen"
+description: ""
+url: "https://tannguyen1100.github.io"
+baseurl: ""
+repository: "tannguyen1100/tannguyen1100.github.io"
+teaser: # path of fallback teaser image, e.g. "/assets/images/500x300.png"
+logo: # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+masthead_title: # overrides the website title displayed in the masthead, use " " for no title
+words_per_minute: 200
+enable_copy_code_button: true # true, false (default)
+copyright: # "copyright" name, defaults to site.title
+copyright_url: # "copyright" URL, defaults to site.url
+atom_feed:
+  path: feed.xml # path of the Atom feed, e.g. "feed.xml"
+  hide: false # true, false (default)
+search: true # true, false (default)
+search_full_content: false # true, false (default)
+# SEO Related
+google_site_verification: JKo2DPQytV2a4kawRGLImmYD65I_Fj4bFDn3C6eZ4ok
+# Analytics
+analytics:
+  provider: "google-gtag"
+  google-gtag:
+    tracking_id: G-T90BVHFN02
+    anonymize_ip: false # true, false (default)
 
-# Build settings
-theme: minima
+# Pagination Settings
+pagination:
+  enabled: true
+  per_page: 5
+  permalink: '/page/:num/'
+  title: ':title - page :num'
+  limit: 0
+  sort_field: 'date'
+  sort_reverse: true
+
+# Site Author
+author:
+  name: "Newt Nguyen"
+  avatar: "/assets/images/avatar.png"
+  bio: "Software Engineer - Sass - Tech Blogger"
+  location: "Hanoi, Vietnam"
+
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-square-envelope"
+      url: "mailto:ngngoctan11@gmail.com"
+    - label: "Website"
+      icon: "fas fa-fw fa-link"
+      url: "https://taplam.online/"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/tannguyen1100"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/newtnguyen1568"
+
 plugins:
+  - jekyll-sitemap
+  - jekyll-gist
   - jekyll-feed
+  - jekyll-include-cache
+  - jekyll-paginate-v2
 
-# Exclude from processing.
-# The following items will not be processed, by default.
-# Any item listed under the `exclude:` key here will be automatically added to
-# the internal "default list".
-#
-# Excluded items can be processed by explicitly listing the directories or
-# their entries' file path in the `include:` list.
-#
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+  # Reading Files
+include:
+  - _pages
+exclude:
+  - "*.sublime-project"
+  - "*.sublime-workspace"
+  - vendor
+  - .asset-cache
+  - .bundle
+  - .jekyll-assets-cache
+  - .sass-cache
+  - assets/js/plugins
+  - assets/js/_main.js
+  - assets/js/vendor
+  - Capfile
+  - CHANGELOG
+  - config
+  - Gemfile
+  - Gruntfile.js
+  - gulpfile.js
+  - LICENSE
+  - log
+  - node_modules
+  - package.json
+  - package-lock.json
+  - Rakefile
+  - README
+  - tmp
+
+  # Outputting
+permalink: posts/:title/
+
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      share: true
+      related: true
+      show_date: true
+      search_full_content: false
+      search: true
+  # _pages
+  - scope:
+      path: "_pages"
+      type: pages
+    values:
+      layout: single
+      author_profile: true
