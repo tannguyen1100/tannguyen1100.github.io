@@ -1,0 +1,16 @@
+{% assign locale = include.locale | default: site.locale %}
+
+
+
+{% if site.footer_scripts %}
+{% for script in site.footer_scripts %}
+<script src="{{ script | relative_url }}"></script>
+{% endfor %}
+{% else %}
+<script src="{{ '/assets/js/main.min.js' | relative_url }}"></script>
+{% endif %}
+
+{% include_cached search-script.html locale=locale %}
+
+{% include analytics.html %}
+
