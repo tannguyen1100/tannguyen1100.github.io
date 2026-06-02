@@ -7,4 +7,6 @@ group :jekyll_plugins do
   gem "jekyll-include-cache"
   gem "sass-embedded"
   gem "jekyll-sitemap"
+  gem "jekyll-gist"
+  gem "jekyll-feed"
 end
