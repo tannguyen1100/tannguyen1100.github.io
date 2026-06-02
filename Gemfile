@@ -6,4 +6,5 @@ group :jekyll_plugins do
   gem "webrick"
   gem "jekyll-include-cache"
   gem "sass-embedded"
+  gem "jekyll-sitemap"
 end
