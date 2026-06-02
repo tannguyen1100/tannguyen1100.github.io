@@ -26,46 +26,16 @@ $(document).ready(function () {
   });
 
   $(".search-input").on("focus", function () {
-    console.log("search input focused");
     if ($(this).val().length === 0) {
       $(".no-search").addClass("is--blur");
     }
   });
 
   $(".search-input").on("focusout", function () {
-    console.log("search input blurred");
     $(".no-search").removeClass("is--blur");
   });
 
-  // Smooth scrolling
-  // var scroll = new SmoothScroll('a[href*="#"]', {
-  //   offset: 20,
-  //   speed: 400,
-  //   speedAsDuration: true,
-  //   durationMax: 500,
-  // });
-
-  // // Gumshoe scroll spy init
-  // if ($("nav.toc").length > 0) {
-  //   var spy = new Gumshoe("nav.toc a", {
-  //     // Active classes
-  //     navClass: "active", // applied to the nav list item
-  //     contentClass: "active", // applied to the content
-
-  //     // Nested navigation
-  //     nested: false, // if true, add classes to parents of active link
-  //     nestedClass: "active", // applied to the parent items
-
-  //     // Offset & reflow
-  //     offset: 20, // how far from the top of the page to activate a content area
-  //     reflow: true, // if true, listen for reflows
-
-  //     // Event support
-  //     events: true, // if true, emit custom events
-  //   });
-  // }
-
-  // // Auto scroll sticky ToC with content
+  // Auto scroll sticky ToC with content
   const scrollTocToContent = function (event) {
     var target = event.target;
     var scrollOptions = { behavior: "auto", block: "nearest", inline: "start" };
@@ -81,11 +51,6 @@ $(document).ready(function () {
       target.scrollIntoView(scrollOptions);
     }
   };
-
-  // // Has issues on Firefox, whitelist Chrome for now
-  // if (!!window.chrome) {
-  //   document.addEventListener("gumshoeActivate", scrollTocToContent);
-  // }
 
   // add lightbox class to all image links
   $(
